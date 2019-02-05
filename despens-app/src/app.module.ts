@@ -16,7 +16,7 @@ import { UsuarioModule } from './usuario/usuario.module';
   imports: [TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
-    port: 32770,
+    port: 32769,
     username: 'admin',
     password: '12345678',
     database: 'despensa',
@@ -26,9 +26,11 @@ import { UsuarioModule } from './usuario/usuario.module';
   }),EmpresaModule,
   TiendaModule,
   ProductoModule,
+  TipoProductoModule,
   DetalleOrdenModule,
   OrdenModule,
   UsuarioModule,
+
   
   
 ],
