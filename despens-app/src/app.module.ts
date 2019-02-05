@@ -24,7 +24,10 @@ import { UsuarioModule } from './usuario/usuario.module';
     synchronize:true,
     dropSchema:true,
   }),EmpresaModule,
-  TiendaModule
+  TiendaModule,
+  ProductoModule,
+  DetalleOrdenModule,
+  
 ],
   controllers: [AppController],
   providers: [AppService],
