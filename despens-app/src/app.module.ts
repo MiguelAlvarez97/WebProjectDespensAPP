@@ -28,6 +28,7 @@ import { UsuarioModule } from './usuario/usuario.module';
   ProductoModule,
   DetalleOrdenModule,
   OrdenModule,
+  UsuarioModule,
   
   
 ],
