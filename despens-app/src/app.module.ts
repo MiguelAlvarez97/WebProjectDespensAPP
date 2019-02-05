@@ -27,6 +27,8 @@ import { UsuarioModule } from './usuario/usuario.module';
   TiendaModule,
   ProductoModule,
   DetalleOrdenModule,
+  OrdenModule,
+  
   
 ],
   controllers: [AppController],
