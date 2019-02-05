@@ -23,7 +23,8 @@ import { UsuarioModule } from './usuario/usuario.module';
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
     synchronize:true,
     dropSchema:true,
-  }),EmpresaModule
+  }),EmpresaModule,
+  TiendaModule
 ],
   controllers: [AppController],
   providers: [AppService],
