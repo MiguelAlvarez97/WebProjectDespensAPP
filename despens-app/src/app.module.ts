@@ -29,7 +29,10 @@ import { UsuarioModule } from './usuario/usuario.module';
   TipoProductoModule,
   DetalleOrdenModule,
   OrdenModule,
+  MetodoPagoModule,
   UsuarioModule,
+  RolUsuarioModule
+  
 
   
   
