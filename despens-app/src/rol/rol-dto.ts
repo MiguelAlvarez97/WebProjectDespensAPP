@@ -1,6 +1,6 @@
 import { IsString } from "class-validator";
 
-export class RolUsuarioDto{
+export class RolDto{
     @IsString()
-    nombreRol:string;
+    rol:string;
 }

@@ -9,14 +9,18 @@ import { OrdenModule } from './orden/orden.module';
 import { DetalleOrdenModule } from './detalle-orden/detalle-orden.module';
 import { TipoProductoModule } from './tipo-producto/tipo-producto.module';
 import { MetodoPagoModule } from './metodo-pago/metodo-pago.module';
-import { RolUsuarioModule } from './rol-usuario/rol-usuario.module';
 import { UsuarioModule } from './usuario/usuario.module';
+import { RolModule } from './rol/rol.module';
+import { UsuarioRolModule } from './usuario-orden/usuario-orden.module';
+import { UsuarioOrdenModule } from './usuario-rol/usuario-rol.module';
+import { TiendaProductoModule } from './tienda-producto/tienda-producto.module';
+import { DetalleOrdenProductoModule } from './detalle-orden-producto/detalle-orden-producto.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
-    port: 32769,
+    port: 32768,
     username: 'admin',
     password: '12345678',
     database: 'despensa',
@@ -24,14 +28,20 @@ import { UsuarioModule } from './usuario/usuario.module';
     synchronize:true,
     dropSchema:true,
   }),EmpresaModule,
-  TiendaModule,
-  ProductoModule,
-  TipoProductoModule,
-  DetalleOrdenModule,
-  OrdenModule,
-  MetodoPagoModule,
-  UsuarioModule,
-  RolUsuarioModule
+    TiendaModule,
+    ProductoModule,
+    TipoProductoModule,
+    DetalleOrdenModule,
+    OrdenModule,
+    MetodoPagoModule,
+    UsuarioModule,
+    RolModule,
+    UsuarioRolModule,
+    UsuarioOrdenModule,
+    TiendaProductoModule,
+    DetalleOrdenProductoModule,
+
+
   
 
   

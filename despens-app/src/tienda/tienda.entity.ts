@@ -1,4 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { TiendaProductoEntity } from './../tienda-producto/tienda-producto.entity';
+import { EmpresaEntity } from './../empresa/empresa.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne, OneToMany } from "typeorm";
+import { EmptyError } from 'rxjs';
 
 @Entity('tienda')
 export class TiendaEntity{
@@ -17,4 +20,9 @@ export class TiendaEntity{
     @Column({type:'varchar',name:'PasswordTienda',length:8})
     passwordTienda:string;
 
+    @ManyToOne(type => EmpresaEntity, empresa => empresa.id)
+    empresa:EmpresaEntity[];
+
+    @OneToMany(type => TiendaProductoEntity , tiendaProducto  => tiendaProducto.id)
+    tiendaProducto:TiendaProductoEntity[];
 }
