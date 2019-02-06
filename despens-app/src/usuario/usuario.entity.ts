@@ -20,6 +20,9 @@ export class UsuarioEntity{
     @Column({type:'varchar',name:'CorreoUsuario',length:40})
     correoUsuario:string;
 
+    @Column({name:'Password', type: 'varchar'})
+    password: string;
+
     @ManyToOne(type => EmpresaEntity, empresa => empresa.id)
     empresa: EmpresaEntity[];
 
