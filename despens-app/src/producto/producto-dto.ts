@@ -9,11 +9,11 @@ export class ProductoDto{
     descripcionProducto:string;
 
     @IsNumber()
-    precionProducto:string;
+    precionProducto:number;
 
     @IsInt()
     @IsNumber()
-    stock:string;
+    stock:number;
 
     @IsString()
     pathImg:string;

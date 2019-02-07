@@ -20,7 +20,7 @@ import { DetalleOrdenProductoModule } from './detalle-orden-producto/detalle-ord
   imports: [TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
-    port: 32768,
+    port: 32769,
     username: 'admin',
     password: '12345678',
     database: 'despensa',

@@ -2,6 +2,7 @@ import { ProductoEntity } from './producto.entity';
 import { Injectable } from "@nestjs/common";
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ProductoDto } from './producto-dto';
 
 @Injectable()
 export class ProductoService{
@@ -16,4 +17,7 @@ export class ProductoService{
         return await this._productoRepository.find();
     }
 
+    async crear (producto: ProductoDto): Promise<ProductoEntity>{
+        return await this._productoRepository.save(producto);
+    }
 }
