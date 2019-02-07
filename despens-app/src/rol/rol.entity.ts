@@ -7,7 +7,7 @@ export class RolEntity{
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column({type:'varchar',name:'NombreRol',length:30})
+    @Column({type:'enum', enum:['usuario', 'administrador', ''],name:'NombreRol'})
     nombreRol:string;
 
     @OneToMany(type => UsuarioRolEntity, usuarioRol => usuarioRol.id)
