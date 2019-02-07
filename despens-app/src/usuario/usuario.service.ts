@@ -18,7 +18,7 @@ export class UsuarioService{
     }
 
     async buscarPorId (id: number): Promise<UsuarioEntity>{
-        return await this._usuarioRepository.findOne(id)
+        return await this._usuarioRepository.findOne(id,{relations:["empresa"]})
     }
     
     async buscarPorEmail (correo: string): Promise<UsuarioEntity>{

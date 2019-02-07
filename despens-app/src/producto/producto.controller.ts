@@ -1,8 +1,6 @@
 import { ProductoDto } from './producto-dto';
 import { Get, Controller, Post, Body, Query, Param } from '@nestjs/common';
 import { ProductoService } from './producto.service';
-import { Observable } from 'rxjs';
-import { constants } from 'http2';
 
 
 
