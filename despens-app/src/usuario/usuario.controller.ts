@@ -16,63 +16,67 @@ export class UsuarioController {
       return await this._usuarioService.obtenerTodosUsuarios();
   }
 
-  @Get(':id')
+  @Get('listar/:id')
     async obtenerUno(
         @Param('id') id
     ): Promise<UsuarioEntity> {
-        return await this._usuarioService.buscarPorId(id)
+        return await this._usuarioService.buscarPorId(id);
     }
 
-    @Post()
+    @Post('buscar')
+    async buscar(@Body('nombreUsuario') nombreUsuario){
+        console.log('sdfasdfsdf',nombreUsuario);
+        return  await this._usuarioService.obtenerPorNombre(nombreUsuario);
+    }
+
+    @Post('crear')
     async crear(
-        @Body('nombre') nombre,
-        @Body('correo') correo,
-        @Body('password') password,
-        @Body('rol') rol
+        @Body() usuario
     ) {
 
-        const usuarioACrearse = crearUsuario(correo, password, nombre, rol)
-        const arregloErrores = await validate(usuarioACrearse)
+        const usuarioACrearse = crearUsuario(usuario);
+        const arregloErrores = await validate(usuarioACrearse);
         const existenErrores = arregloErrores.length > 0
-        console.log(arregloErrores)
+        console.log(arregloErrores);
         if (existenErrores) {
-            console.error('errores: creando al usuario', arregloErrores)
+            console.error('errores: creando al usuario', arregloErrores);
             throw new BadRequestException('Parametros incorrectos')
         }
         else {
-            return this._usuarioService.crear(usuarioACrearse)
+            return this._usuarioService.crear(usuarioACrearse);
         }
     }
 
-    @Put(':id')
+    @Post('editar/:id')
     async  editar(
         @Param() id: number,
         @Body() usuario: UsuarioEditarDto
     ): Promise<UsuarioEntity> {
-        const usuarioAEditarse = editarUsuario(usuario)
-        const arregloErrores = await validate(usuarioAEditarse)
+        const usuarioAEditarse = editarUsuario(usuario);
+        const arregloErrores = await validate(usuarioAEditarse);
         const existenErrores = arregloErrores.length > 0
-        console.log('errores', arregloErrores)
+        console.log('errores', arregloErrores);
         if (existenErrores) {
-            console.error('errores editando al usuario', arregloErrores)
-            throw new BadRequestException('Parametros incorrectos')
+            console.error('errores editando al usuario', arregloErrores);
+            throw new BadRequestException('Parametros incorrectos');
         }
         else {
-            return this._usuarioService.editar(id, usuarioAEditarse)
+            return this._usuarioService.editar(id, usuarioAEditarse);
         }
     }
 
-    @Delete(':id')
+    @Post('eliminar/:id')
     eliminar(
         @Param('id') id: number
     ) {
-        return this._usuarioService.eliminar(id)
+        console.log(id);
+        return this._usuarioService.eliminar(id);
     }
 
     @Get()
     async  buscarQuery(
         @Query() query: object
     ): Promise<UsuarioEntity[]> {
-        return await this._usuarioService.query(query)
+        return await this._usuarioService.query(query);
     }
 }

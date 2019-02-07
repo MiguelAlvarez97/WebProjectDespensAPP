@@ -1,11 +1,14 @@
+import { RolController } from './../../rol/rol.controller';
 import { UsuarioCrearDto } from "../dto/usuario-crear-dto";
 
 
-export function crearUsuario(correo: string, password:string, nombre:string, rol : string) :UsuarioCrearDto{
+export function crearUsuario(usuario): UsuarioCrearDto {
     const usuarioACrear = new UsuarioCrearDto()
-    usuarioACrear.correoUsuairo=correo,
-    usuarioACrear.password=password
-    usuarioACrear.nombreUsuario=nombre
-    usuarioACrear.rol= rol
+    usuarioACrear.nombreUsuario = usuario.nombreUsuario,
+        usuarioACrear.apellidoUsuario = usuario.apellidoUsuario,
+        usuarioACrear.correoUsuario = usuario.correoUsuario,
+        usuarioACrear.password = usuario.password,
+        usuarioACrear.telefonoUsuario = usuario.telefonoUsuario,
+        usuarioACrear.rol = usuario.rol
     return usuarioACrear
 }

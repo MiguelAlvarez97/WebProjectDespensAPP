@@ -22,7 +22,7 @@ export class UsuarioEditarDto{
     @IsString()
     @IsEmail()
     @IsOptional()
-    correoUsuairo?:string;
+    correoUsuario?:string;
 
 
     @IsNotEmpty()

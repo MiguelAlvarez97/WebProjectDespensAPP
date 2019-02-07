@@ -2,15 +2,16 @@ import { Controller, Body, BadRequestException, Post } from '@nestjs/common';
 import { validate } from 'class-validator';
 import { UsuarioService } from './usuario.service';
 import { generarUsuarioLogin } from './funciones/generar-usuario-login';
-@Controller('autenticacion')
+import { AdvancedConsoleLogger } from 'typeorm';
+@Controller('usuario')
 export class AutenticacionController {
     constructor(private readonly _usuarioService: UsuarioService) { }
     @Post('login')
     async autentificar(
-        @Body('usuario') usuario ,
+        @Body('correoUsuario') correoUsuario ,
         @Body('password') password
     ){
-        const usuarioALoguearse = generarUsuarioLogin(usuario, password)
+        const usuarioALoguearse = generarUsuarioLogin(correoUsuario, password)
         const arregloErrores = await validate(usuarioALoguearse)
         const existenErrores = arregloErrores.length > 0
         console.log(arregloErrores)
@@ -19,7 +20,8 @@ export class AutenticacionController {
             throw new BadRequestException('Parametros inocrrectos')
         }
         else{
-            const usuarioEncontrado= await this._usuarioService.buscarPorEmail(usuarioALoguearse.usuario)
+            console.log(usuarioALoguearse.correoUsuario);
+            const usuarioEncontrado= await this._usuarioService.buscarPorEmail(usuarioALoguearse.correoUsuario)
             if(usuarioEncontrado){
                 const esPasswordCorrecto = usuarioEncontrado.password == usuarioALoguearse.password 
                 if(esPasswordCorrecto){

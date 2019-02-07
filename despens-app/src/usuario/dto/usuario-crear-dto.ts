@@ -15,18 +15,19 @@ export class UsuarioCrearDto{
     @IsString()
     telefonoUsuario?:string;
 
+   
     @IsNotEmpty()
-    @IsString()
-    @IsEmail()
-    correoUsuairo:string;
+   @IsString()
+   @IsEmail()
+    correoUsuario:string;
 
     @IsNotEmpty()
     @IsString()
-    @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)
-    password: string
+    //@Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)
+    password: string;
 
-    @IsNotEmpty()
+    //@IsNotEmpty()
     @IsString()
-    rol:string
+    rol:string;
 
 }

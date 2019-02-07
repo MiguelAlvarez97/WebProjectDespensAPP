@@ -24,8 +24,8 @@ export class ProductoService{
                 nombreProducto
             }
         };
-        const usuarioEncontrado = this._productoRepository.findOne(opciones)
-        return usuarioEncontrado
+        const productoEncontrado = this._productoRepository.findOne(opciones)
+        return productoEncontrado
 
     }
 
