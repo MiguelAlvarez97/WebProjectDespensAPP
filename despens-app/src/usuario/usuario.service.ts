@@ -14,7 +14,7 @@ export class UsuarioService {
 
     }
     async obtenerTodosUsuarios() {
-        return await this._usuarioRepository.find();
+        return await this._usuarioRepository.find({ relations: ["empresa"] });
     }
 
     async obtenerPorNombre(nombreUsuario: string): Promise<UsuarioEntity> {
