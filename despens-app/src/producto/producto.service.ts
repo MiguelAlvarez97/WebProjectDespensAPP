@@ -31,8 +31,7 @@ export class ProductoService{
 
 
     async buscarPorId (id: number): Promise<ProductoEntity>{
-        console.log(await this._productoRepository.findOne(id))
-        return await this._productoRepository.findOne(id)
+        return await this._productoRepository.findOne(id,{relations:["TipoProducto"]})
     }
 
     async crear (producto: ProductoDto): Promise<ProductoEntity>{
@@ -43,9 +42,10 @@ export class ProductoService{
         await this._productoRepository.update(id, producto)
         return this.buscarPorId(id)
     }
-    async eliminar(id:number){
-
-        return await this._productoRepository.delete(id);
+    async eliminar(id:number): Promise<ProductoEntity>{
+        const productoEliminar = await this.buscarPorId(id)
+         await this._productoRepository.delete(id);
+        return productoEliminar
     }
 
 }
